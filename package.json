@@ -1,0 +1,38 @@
+{
+  "name": "nr-contrib-timestamp-diff",
+  "version": "1.0.0",
+  "description": "Node-Red Node that calculates the difference between two timestamps.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "moment": "^2.29.0"
+  },
+  "devDependencies": {
+    "@types/node-red": "^1.1.0"
+  },
+  "keywords": [
+    "node-red",
+    "timestamp",
+    "time",
+    "difference"
+  ],
+  "node-red": {
+    "version": ">=3",
+    "nodes": {
+      "timestamp-diff": "moment/nrtimestampdiff.js"
+    }
+  },
+  "engines": {
+    "node": ">=14.14"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "maintained node versions",
+    "last 2 versions",
+    "not dead",
+    "not ie < 11"
+  ],
+  "main": "moment/nrtimestampdiff.js",
+  "license": "MIT"
+}

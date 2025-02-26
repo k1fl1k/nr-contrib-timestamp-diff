@@ -1,0 +1,56 @@
+<script type="text/javascript">
+    RED.nodes.registerType("timestamp-diff", {
+        category: "function",
+        color: "#a6bbcf",
+        defaults: {
+            input_key1: { value: "timestamp1", required: true },
+            input_key2: { value: "timestamp2", required: true },
+            units: { value: "seconds", required: true },
+            output_key: { value: "payload" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-clock-o",
+        label: function () {
+            return this.name || "Timestamp Diff";
+        },
+        oneditprepare: function () {
+            $("#node-input-units").typedInput({
+                types: ["str"],
+                options: [
+                    { value: "milliseconds", label: "Milliseconds" },
+                    { value: "seconds", label: "Seconds" },
+                    { value: "minutes", label: "Minutes" },
+                    { value: "hours", label: "Hours" },
+                    { value: "days", label: "Days" }
+                ]
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="timestamp-diff">
+    <div class="form-row">
+        <label for="node-input-input_key1"><i class="fa fa-clock-o"></i> Input Key 1</label>
+        <input type="text" id="node-input-input_key1" placeholder="timestamp1">
+    </div>
+    <div class="form-row">
+        <label for="node-input-input_key2"><i class="fa fa-clock-o"></i> Input Key 2</label>
+        <input type="text" id="node-input-input_key2" placeholder="timestamp2">
+    </div>
+    <div class="form-row">
+        <label for="node-input-units"><i class="fa fa-clock-o"></i> Units</label>
+        <input type="text" id="node-input-units">
+    </div>
+    <div class="form-row">
+        <label for="node-input-output_key"><i class="fa fa-sign-out"></i> Output Key</label>
+        <input type="text" id="node-input-output_key" placeholder="payload">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="timestamp-diff">
+    <p>This node calculates the difference between two timestamps in the selected unit.</p>
+    <p><strong>Input Keys:</strong> Define the keys for timestamps in the incoming message.</p>
+    <p><strong>Units:</strong> Choose the time unit (milliseconds, seconds, minutes, etc.).</p>
+    <p><strong>Output Key:</strong> The key where the result will be stored.</p>
+</script>
